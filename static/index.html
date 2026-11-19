@@ -307,14 +307,547 @@
         footer a:hover {
             text-decoration: underline;
         }
+
+        /* Merge Pages Tool Styles */
+        .top-nav-bar {
+            display: flex;
+            justify-content: flex-end;
+            max-width: 880px;
+            margin: 0 auto;
+            padding: 1.25rem 1.5rem 0;
+        }
+
+        .top-action-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            padding: 0.5rem 1.15rem;
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: var(--accent);
+            cursor: pointer;
+            box-shadow: 0 2px 8px var(--shadow);
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+
+        .top-action-btn:hover {
+            border-color: var(--accent);
+            background: var(--accent-soft);
+            transform: translateY(-1px);
+        }
+
+        .merge-tool-card {
+            display: none;
+            background: var(--surface);
+            border: 1.5px solid var(--accent);
+            border-radius: 14px;
+            padding: 1.75rem 2rem;
+            box-shadow: 0 6px 20px var(--shadow);
+            margin-bottom: 2.25rem;
+        }
+
+        .merge-tool-card.active {
+            display: block;
+            animation: fadeIn 0.25s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .merge-tool-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1.25rem;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .merge-tool-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text);
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .open-page-link {
+            font-size: 0.82rem;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .open-page-link:hover {
+            text-decoration: underline;
+        }
+
+        .btn-close-tool {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            cursor: pointer;
+            font-size: 1.2rem;
+            padding: 0.2rem 0.5rem;
+            border-radius: 6px;
+            line-height: 1;
+        }
+
+        .btn-close-tool:hover {
+            background: var(--bg);
+            color: var(--text);
+        }
+
+        .dropzone {
+            border: 2px dashed var(--border);
+            border-radius: 12px;
+            padding: 2.2rem 1.5rem;
+            text-align: center;
+            background: var(--bg);
+            cursor: pointer;
+            transition: border-color 0.2s ease, background-color 0.2s ease;
+            position: relative;
+        }
+
+        .dropzone:hover, .dropzone.dragover {
+            border-color: var(--accent);
+            background: var(--accent-soft);
+        }
+
+        .dropzone input[type="file"] {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        .dropzone-icon {
+            width: 44px;
+            height: 44px;
+            color: var(--accent);
+            margin-bottom: 0.6rem;
+        }
+
+        .dropzone-title {
+            font-size: 1.08rem;
+            font-weight: 600;
+            margin: 0 0 0.3rem;
+        }
+
+        .dropzone-desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        .file-status {
+            display: none;
+            margin-top: 1rem;
+            padding: 0.75rem 1rem;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 0.9rem;
+        }
+
+        .file-status.active {
+            display: flex;
+        }
+
+        .file-badge {
+            background: var(--accent-soft);
+            color: var(--accent);
+            font-weight: 700;
+            padding: 0.2rem 0.6rem;
+            border-radius: 999px;
+            font-size: 0.8rem;
+            margin-right: 0.5rem;
+        }
+
+        .btn-clear {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            cursor: pointer;
+            font-size: 0.85rem;
+            text-decoration: underline;
+            padding: 0;
+        }
+
+        .btn-clear:hover {
+            color: #d32f2f;
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.15rem;
+            margin-top: 1.25rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .form-label {
+            font-size: 0.86rem;
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .form-control {
+            padding: 0.6rem 0.85rem;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: var(--bg);
+            color: var(--text);
+            font-size: 0.92rem;
+            font-family: inherit;
+            outline: none;
+            transition: border-color 0.15s ease, box-shadow 0.15s ease;
+        }
+
+        .form-control:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px var(--accent-soft);
+        }
+
+        .radio-pills {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .radio-pill {
+            flex: 1;
+            position: relative;
+        }
+
+        .radio-pill input {
+            position: absolute;
+            opacity: 0;
+        }
+
+        .radio-pill label {
+            display: block;
+            text-align: center;
+            padding: 0.6rem 0.4rem;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.88rem;
+            font-weight: 600;
+            background: var(--bg);
+            color: var(--text-muted);
+            transition: all 0.15s ease;
+        }
+
+        .radio-pill input:checked + label {
+            border-color: var(--accent);
+            background: var(--accent-soft);
+            color: var(--accent);
+        }
+
+        .action-bar {
+            margin-top: 1.5rem;
+            display: flex;
+            justify-content: flex-end;
+            gap: 1rem;
+        }
+
+        .btn-primary {
+            background-color: var(--accent);
+            color: #ffffff;
+            border: none;
+            border-radius: 8px;
+            padding: 0.7rem 1.5rem;
+            font-size: 0.98rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: background-color 0.15s ease, transform 0.1s ease;
+        }
+
+        .btn-primary:hover:not(:disabled) {
+            background-color: var(--accent-hover, #73592e);
+        }
+
+        .btn-primary:active:not(:disabled) {
+            transform: scale(0.98);
+        }
+
+        .btn-primary:disabled {
+            opacity: 0.55;
+            cursor: not-allowed;
+        }
+
+        .progress-container {
+            display: none;
+            margin-top: 1.25rem;
+        }
+
+        .progress-container.active {
+            display: block;
+        }
+
+        .progress-bar-bg {
+            background: var(--border);
+            height: 7px;
+            border-radius: 999px;
+            overflow: hidden;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            background: var(--accent);
+            width: 0%;
+            transition: width 0.1s ease;
+        }
+
+        .progress-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            margin-top: 0.35rem;
+        }
+
+        .result-card {
+            display: none;
+            background: var(--bg);
+            border: 1px solid var(--accent);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-top: 1.25rem;
+            animation: fadeIn 0.25s ease;
+        }
+
+        .result-card.active {
+            display: block;
+        }
+
+        .result-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .result-title {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.08rem;
+            font-weight: 700;
+            color: #2e7d32;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .result-title {
+                color: #81c784;
+            }
+        }
+
+        .btn-download {
+            background-color: #2e7d32;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 8px;
+            padding: 0.65rem 1.4rem;
+            font-size: 0.98rem;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+            transition: opacity 0.15s ease, transform 0.1s ease;
+        }
+
+        .btn-download:hover {
+            opacity: 0.92;
+            transform: translateY(-1px);
+        }
+
+        .preview-box {
+            margin-top: 0.75rem;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 0.85rem;
+            max-height: 200px;
+            overflow-y: auto;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            font-size: 0.82rem;
+            white-space: pre-wrap;
+            word-break: break-all;
+            color: var(--text);
+        }
     </style>
 </head>
 <body>
+    <div class="top-nav-bar">
+        <button type="button" class="top-action-btn" id="btnToggleMergeTool">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="12" y1="18" x2="12" y2="12"></line>
+                <line x1="9" y1="15" x2="15" y2="15"></line>
+            </svg>
+            <span>Merge Pages Tool</span>
+        </button>
+    </div>
     <header>
         <span class="kicker">Book Archive</span>
         <h1>Islamopedia Books</h1>
     </header>
     <div class="container">
+        <!-- Merge Pages Tool Card -->
+        <section class="merge-tool-card" id="mergeToolCard" aria-label="Merge Pages Tool">
+            <div class="merge-tool-header">
+                <h3 class="merge-tool-title">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                        <line x1="12" y1="18" x2="12" y2="12"></line>
+                        <line x1="9" y1="15" x2="15" y2="15"></line>
+                    </svg>
+                    Merge Pages Tool
+                </h3>
+                <div class="header-actions">
+                    <a href="merge.html" class="open-page-link" target="_blank" rel="noopener">Open in full page ↗</a>
+                    <button type="button" class="btn-close-tool" id="btnCloseMergeTool" title="Close Merge Tool">×</button>
+                </div>
+            </div>
+
+            <!-- Dropzone -->
+            <div class="dropzone" id="dropzone">
+                <input type="file" id="fileInput" multiple accept=".md,.txt,text/plain,text/markdown">
+                <svg class="dropzone-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="17 8 12 3 7 8"></polyline>
+                    <line x1="12" y1="3" x2="12" y2="15"></line>
+                </svg>
+                <p class="dropzone-title">Click to select files or drag & drop</p>
+                <p class="dropzone-desc">Accepts .md and .txt files (up to 1,000 files at once)</p>
+            </div>
+
+            <!-- File Status summary -->
+            <div class="file-status" id="fileStatus">
+                <div>
+                    <span class="file-badge" id="fileCountBadge">0 files</span>
+                    <span id="fileSummaryText">No files selected</span>
+                </div>
+                <button type="button" class="btn-clear" id="btnClearFiles">Clear all</button>
+            </div>
+
+            <!-- Options Grid -->
+            <div class="options-grid">
+                <div class="form-group">
+                    <span class="form-label">Output Format</span>
+                    <div class="radio-pills">
+                        <div class="radio-pill">
+                            <input type="radio" id="formatMd" name="outputFormat" value="md" checked>
+                            <label for="formatMd">Markdown (.md)</label>
+                        </div>
+                        <div class="radio-pill">
+                            <input type="radio" id="formatTxt" name="outputFormat" value="txt">
+                            <label for="formatTxt">Text (.txt)</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="outputName">Output File Name</label>
+                    <input type="text" class="form-control" id="outputName" value="merged_chapter.md" placeholder="e.g. chap_1.rtl.md">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="pageSeparator">Page Separator</label>
+                    <select class="form-control" id="pageSeparator">
+                        <option value="divider">Markdown Divider (---)</option>
+                        <option value="newline">Double Newline (\n\n)</option>
+                        <option value="single">Single Line Break (\n)</option>
+                        <option value="none">No Separator</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Progress Bar -->
+            <div class="progress-container" id="progressContainer">
+                <div class="progress-bar-bg">
+                    <div class="progress-bar-fill" id="progressBarFill"></div>
+                </div>
+                <div class="progress-label">
+                    <span id="progressText">Processing files...</span>
+                    <span id="progressPercent">0%</span>
+                </div>
+            </div>
+
+            <!-- Action Bar -->
+            <div class="action-bar">
+                <button type="button" class="btn-primary" id="btnMerge" disabled>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18">
+                        <polyline points="16 16 12 12 8 16"></polyline>
+                        <line x1="12" y1="12" x2="12" y2="21"></line>
+                        <path d="M20.39 18.39A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.3"></path>
+                        <polyline points="16 16 12 12 8 16"></polyline>
+                    </svg>
+                    Merge Pages
+                </button>
+            </div>
+
+            <!-- Result Card -->
+            <div class="result-card" id="resultCard">
+                <div class="result-header">
+                    <div>
+                        <div class="result-title">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="22" height="22">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                            </svg>
+                            <span>Pages Merged Successfully!</span>
+                        </div>
+                        <p style="margin: 0.25rem 0 0; color: var(--text-muted); font-size: 0.9rem;" id="resultDetails">100 pages merged into 1 file.</p>
+                    </div>
+                    <a href="#" id="downloadBtn" class="btn-download" download="merged_chapter.md">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
+                        Download Merged File
+                    </a>
+                </div>
+
+                <label class="form-label" style="display: block; margin-top: 0.85rem;">Preview (First 1,000 lines)</label>
+                <div class="preview-box" id="previewBox"></div>
+            </div>
+        </section>
+
         <p class="intro">
             This is a helper repository of <a href="https://github.com/segullshairbutt/islamopedia/" target="_blank" rel="noopener">Islamopedia</a>
             to keep the backup of the books in text format. This allows the books to live in a version control
@@ -514,6 +1047,177 @@
 
         searchEl.addEventListener("input", (e) => render(e.target.value));
         render("");
+
+        // --- Merge Pages Tool Logic ---
+        let selectedMergeFiles = [];
+        let indexMergedDownloadUrl = null;
+
+        const btnToggleMergeTool = document.getElementById("btnToggleMergeTool");
+        const btnCloseMergeTool = document.getElementById("btnCloseMergeTool");
+        const mergeToolCard = document.getElementById("mergeToolCard");
+        const dropzone = document.getElementById("dropzone");
+        const fileInput = document.getElementById("fileInput");
+        const fileStatus = document.getElementById("fileStatus");
+        const fileCountBadge = document.getElementById("fileCountBadge");
+        const fileSummaryText = document.getElementById("fileSummaryText");
+        const btnClearFiles = document.getElementById("btnClearFiles");
+        const btnMerge = document.getElementById("btnMerge");
+        const formatMd = document.getElementById("formatMd");
+        const formatTxt = document.getElementById("formatTxt");
+        const outputName = document.getElementById("outputName");
+        const pageSeparator = document.getElementById("pageSeparator");
+        const progressContainer = document.getElementById("progressContainer");
+        const progressBarFill = document.getElementById("progressBarFill");
+        const progressText = document.getElementById("progressText");
+        const progressPercent = document.getElementById("progressPercent");
+        const resultCard = document.getElementById("resultCard");
+        const resultDetails = document.getElementById("resultDetails");
+        const downloadBtn = document.getElementById("downloadBtn");
+        const previewBox = document.getElementById("previewBox");
+
+        const naturalCollator = new Intl.Collator(undefined, { numeric: true, sensitivity: 'base' });
+
+        function toggleMergeTool() {
+            const isActive = mergeToolCard.classList.toggle("active");
+            if (isActive) {
+                mergeToolCard.scrollIntoView({ behavior: "smooth", block: "start" });
+            }
+        }
+
+        btnToggleMergeTool.addEventListener("click", toggleMergeTool);
+        btnCloseMergeTool.addEventListener("click", () => {
+            mergeToolCard.classList.remove("active");
+        });
+
+        function updateFormatExtension() {
+            const ext = formatMd.checked ? '.md' : '.txt';
+            const current = outputName.value.trim();
+            if (current) {
+                outputName.value = current.replace(/\.(md|txt)$/i, '') + ext;
+            } else {
+                outputName.value = 'merged_chapter' + ext;
+            }
+        }
+
+        formatMd.addEventListener("change", updateFormatExtension);
+        formatTxt.addEventListener("change", updateFormatExtension);
+
+        function handleMergeFiles(files) {
+            const validFiles = Array.from(files).filter(f => {
+                const name = f.name.toLowerCase();
+                return name.endsWith('.md') || name.endsWith('.txt') || name.endsWith('.markdown');
+            });
+
+            if (validFiles.length === 0) {
+                alert("Please select .md or .txt files.");
+                return;
+            }
+
+            selectedMergeFiles = validFiles.sort((a, b) => naturalCollator.compare(a.name, b.name));
+
+            const totalSize = selectedMergeFiles.reduce((acc, f) => acc + f.size, 0);
+            const sizeFormatted = (totalSize / (1024 * 1024)).toFixed(2);
+
+            fileCountBadge.textContent = `${selectedMergeFiles.length} files`;
+            fileSummaryText.textContent = `${selectedMergeFiles[0].name} … ${selectedMergeFiles[selectedMergeFiles.length - 1].name} (${sizeFormatted} MB)`;
+            fileStatus.classList.add("active");
+            btnMerge.disabled = false;
+            resultCard.classList.remove("active");
+        }
+
+        fileInput.addEventListener("change", (e) => {
+            if (e.target.files.length) {
+                handleMergeFiles(e.target.files);
+            }
+        });
+
+        dropzone.addEventListener("dragover", (e) => {
+            e.preventDefault();
+            dropzone.classList.add("dragover");
+        });
+
+        dropzone.addEventListener("dragleave", () => {
+            dropzone.classList.remove("dragover");
+        });
+
+        dropzone.addEventListener("drop", (e) => {
+            e.preventDefault();
+            dropzone.classList.remove("dragover");
+            if (e.dataTransfer.files.length) {
+                handleMergeFiles(e.dataTransfer.files);
+            }
+        });
+
+        btnClearFiles.addEventListener("click", () => {
+            selectedMergeFiles = [];
+            fileInput.value = "";
+            fileStatus.classList.remove("active");
+            btnMerge.disabled = true;
+            resultCard.classList.remove("active");
+            progressContainer.classList.remove("active");
+            if (indexMergedDownloadUrl) {
+                URL.revokeObjectURL(indexMergedDownloadUrl);
+                indexMergedDownloadUrl = null;
+            }
+        });
+
+        btnMerge.addEventListener("click", async () => {
+            if (!selectedMergeFiles.length) return;
+
+            btnMerge.disabled = true;
+            progressContainer.classList.add("active");
+            resultCard.classList.remove("active");
+
+            let sep = "\n\n---\n\n";
+            if (pageSeparator.value === "newline") sep = "\n\n";
+            else if (pageSeparator.value === "single") sep = "\n";
+            else if (pageSeparator.value === "none") sep = "";
+
+            const total = selectedMergeFiles.length;
+            const contents = [];
+            const batchSize = 30;
+
+            for (let i = 0; i < total; i += batchSize) {
+                const batch = selectedMergeFiles.slice(i, i + batchSize);
+                const batchTexts = await Promise.all(batch.map(file => file.text()));
+                contents.push(...batchTexts);
+
+                const currentCount = Math.min(i + batchSize, total);
+                const pct = Math.round((currentCount / total) * 100);
+                progressBarFill.style.width = pct + "%";
+                progressPercent.textContent = pct + "%";
+                progressText.textContent = `Merging page ${currentCount} of ${total}...`;
+
+                await new Promise(r => setTimeout(r, 0));
+            }
+
+            const mergedText = contents.join(sep);
+            const isMd = formatMd.checked;
+            const mimeType = isMd ? "text/markdown;charset=utf-8" : "text/plain;charset=utf-8";
+
+            if (indexMergedDownloadUrl) {
+                URL.revokeObjectURL(indexMergedDownloadUrl);
+            }
+
+            const blob = new Blob([mergedText], { type: mimeType });
+            indexMergedDownloadUrl = URL.createObjectURL(blob);
+
+            const filename = outputName.value.trim() || ("merged_chapter" + (isMd ? ".md" : ".txt"));
+            downloadBtn.href = indexMergedDownloadUrl;
+            downloadBtn.download = filename;
+
+            const finalSizeFormatted = (blob.size / (1024 * 1024)).toFixed(2);
+            resultDetails.textContent = `${total} pages assembled into "${filename}" (${finalSizeFormatted} MB)`;
+
+            const previewLines = mergedText.split("\n").slice(0, 1000).join("\n");
+            previewBox.textContent = previewLines;
+
+            progressContainer.classList.remove("active");
+            resultCard.classList.add("active");
+            btnMerge.disabled = false;
+
+            resultCard.scrollIntoView({ behavior: "smooth", block: "nearest" });
+        });
     </script>
 </body>
 </html>
